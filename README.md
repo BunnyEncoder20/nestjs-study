@@ -1,4 +1,4 @@
-# nestjs-study
+# Nestjs Study
 
-- For my nest js framework studying and expeirmentations
-- I Better copy this repo at work.
+- For learning and experimenting with the Nestjs Framework.
+- Need to clone this on work machine also
