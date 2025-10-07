@@ -69,12 +69,20 @@ export class UsersService {
       role: 'Admin' | 'Engineer' | 'Intern';
     },
   ) {
-    this.usersList.map((user) => {
+    this.usersList = this.usersList.map((user) => {
       if (user.id === id) {
         return { ...user, ...updatedData };
       }
       return user;
     });
     return this.findOne(id);
+  }
+
+  deleteUser(id: number) {
+    const removedUser = this.findOne(id);
+    this.usersList = this.usersList.filter(
+      (user) => user.id !== removedUser.id,
+    );
+    return removedUser;
   }
 }
