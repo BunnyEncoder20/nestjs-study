@@ -66,9 +66,15 @@ export class UsersService {
     updatedData: {
       name?: string;
       email?: string;
-      role: 'Admin' | 'Engineer' | 'Intern',
+      role: 'Admin' | 'Engineer' | 'Intern';
     },
   ) {
-
+    this.usersList.map((user) => {
+      if (user.id === id) {
+        return { ...user, ...updatedData };
+      }
+      return user;
+    });
+    return this.findOne(id);
   }
 }
