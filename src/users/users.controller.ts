@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 
 class createUserDTO {
   name: string;
@@ -35,6 +43,6 @@ export class UsersController {
   // Delete routes
   @Delete(':id')
   deleteUser(@Param('id') userId: string) {
-    return { deleted: userId };
+    return { deleted: userid };
   }
 }
