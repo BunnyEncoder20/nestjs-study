@@ -46,16 +46,14 @@ export class UserService {
     return this.usersList.find((user) => user.id === id);
   }
 
-  createUser(
-    name: string,
-    email: string,
-    role: 'Admin' | 'Engineer' | 'Intern',
-  ) {
+  createUser(userData: {
+    name: string;
+    email: string;
+    role: 'Admin' | 'Engineer' | 'Intern';
+  }) {
     const newUser = {
       id: this.usersList.length + 1,
-      name,
-      email,
-      role,
+      ...userData,
     };
     this.usersList.push(newUser);
     return newUser;
