@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class UserService {
@@ -78,6 +78,9 @@ export class UserService {
 
   deleteUser(id: number) {
     const removedUser = this.findOne(id);
+    if (!removedUser) {
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
     this.usersList = this.usersList.filter(
       (user) => user.id !== removedUser.id,
     );
