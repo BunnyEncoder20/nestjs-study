@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
+import { UserService } from './user.service';
 
 class createUserDTO {
   name: string;
@@ -16,7 +17,7 @@ class createUserDTO {
 
 @Controller('users')
 export class UsersController {
-
+  constructor(private readonly userService: UserService) {}
   // GET routes
   @Get()
   findUsers() {
@@ -43,6 +44,6 @@ export class UsersController {
   // Delete routes
   @Delete(':id')
   deleteUser(@Param('id') userId: string) {
-    return { deleted: userid };
+    return { deleted: userId };
   }
 }
